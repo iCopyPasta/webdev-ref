@@ -1,0 +1,40 @@
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px;
+
+    /* naming */
+    grid-template-areas: 
+        "h h h h h h h h h h h h"
+        "m c c c c c c c c c c c"
+        "f f f f f f f f f f f f";
+
+        /* visual representation
+            h - header
+            m - menu
+            c - content
+            f - footer
+            . - blank cells
+
+            note: will only be valid if they are recentangular
+        */
+
+}
+
+.header {
+    grid-area: h;
+}
+
+.menu {
+    grid-area: m;
+}
+
+.content {
+    grid-area: c;
+}
+
+.footer {
+    grid-area: f;
+}

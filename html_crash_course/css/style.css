@@ -1,0 +1,257 @@
+/* every element, every style*/
+/* *{
+    margin: 0;
+    padding:0;
+
+} */
+body{
+    background-color: #f4f4f4;
+    color:#555555;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.6em;
+    /*em is for more responsive*/
+    /*font: normal Arial, Helvetica, sans-serif;*/
+    /*Web Safe Fonts - included with all browsers*/
+    /* Would otherwise have to import externally as a dependency*/
+    margin: 0;
+
+}
+
+.clr{
+    clear:both;
+}
+
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+a:hover{
+    color:red;
+}
+
+a:active{
+    color:green;
+}
+
+a:visited{
+    color:black
+}
+
+.button{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+}
+/*
+Color Names
+HTML5 COlor Names
+Hexadecimal
+RGB
+*/
+
+.box-1{
+    background-color: #333333;
+    color: #fff;
+
+    border-right: 5px red solid;
+    border-left: 5px red dotted;
+    border-top: 1px blueviolet dashed;
+    border-bottom: 1px blueviolet solid;
+
+    border-width: 3px; /*sets all borders*/
+    border-bottom-width: 10px;
+
+    /*between */
+    padding-top: 40px;
+    padding: 40px;
+
+    /* things outside the border*/
+    margin-top:80px;
+}
+
+.box-2{
+    border:6px dotted #ccc;
+    padding:50px;
+    margin: 20px 0px;
+}
+
+.categories{
+    border:5px #ccc solid;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.categories h2{
+    text-align: center;
+}
+
+.categories ul{
+    padding: 0;
+    padding-left: 20px;
+    list-style:square;
+}
+
+.categories li{
+    padding-bottom: 8px;
+    border-bottom: dotted 2px #333;
+    list-style-image: url('../images/check.png');
+}
+
+.box-1 h1{
+    font-family:Tahoma;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: lowercase;
+    letter-spacing: 0.2em;
+}
+
+.container{
+    /*width: 960px; does not adapt*/
+    width: 80%;
+    margin: auto; /*sets a margin on all sides*/
+}
+
+/* Margin & Padding Shorthand*/
+/* long way */
+.sample-note{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10;
+}
+
+/* top right bottom left*/
+.sample-note-2{
+    margin: 5px 10px 5px 10px;
+}
+
+/* top & bottom; right & left are same*/
+.sample-note-3{
+    margin: 5px 10px;
+}
+
+/* top & bottom & right & left are same*/
+.sample-note-3{
+    margin: 5px;
+}
+
+/* padding can work the same way*/
+
+
+.my-form{
+    padding:20px;
+
+}
+
+.my-form.form-group{
+    padding-bottom: 1em;
+}
+
+.my-form label{
+    display:block;
+}
+
+.my-form input[type="text"], .my-form textarea{
+    padding: 2em;
+    width:100%; /* of its container*/
+}
+
+.my-form input[type="email"]{
+    padding: 2em;
+    width:100%; /* of its container*/
+}
+
+.my-form input[type="submit"]{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+
+}
+
+.block{
+    float: left;
+    width: 33.3%;
+    border: 2px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+#main-block{
+    float:left;
+    width:70%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#sidebar{
+    float:right;
+    width:30%;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Positioning in CSS */
+/*
+    Static - default; renders in order of DOM flow
+    Relative - positioned relative to its normal position
+    Absolute - target whatever position inside a relative element
+    Fixed    - fixed position to the browser window
+    Initial  - property to default value
+    Inherit  - gets property of parent
+*/
+
+.p-box{
+    width:800px;
+    height:500px;
+    border:1px solid #000;
+    margin-top: 30px;
+    position: relative; /*.p-box h1 uses DOM as parent o/w*/
+    background-image:url('../images/light.jpeg');
+    /*background-position: 100px 200px; pushes over and down*/
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.p-box h1{
+    
+    position: absolute;
+    top:40px;
+    left: 200px;
+}
+
+.p-box h2{
+    /*position: absolute;  uses DOM as parent*/
+    position: absolute;
+    bottom:40px;
+    right: 100px;
+}
+
+/*good for social media links*/
+.fix-me{
+    position: fixed;
+    top:400px;
+}
+
+/*For dynamic content*/
+.my-list li:first-child{
+    background:red;
+}
+
+.my-list li:last-child{
+    background:blue;
+}
+
+.my-list li:nth-child(5){
+    background:purple;
+}
+
+.my-list li:nth-child(even){
+    background:grey;
+}

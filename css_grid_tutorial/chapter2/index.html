@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="basic.css">
+        <style>
+            .container{
+                display:grid;
+                /* auto lets CSS calculate the remaining portion*/
+                /* actual entries define the "grid" layout here"border:
+                    3 columns
+                    2 rows*/
+                grid-template-columns: 100px auto 100px;
+                grid-template-rows: 50px 50px;
+                
+                /* actual entries define the "grid" layout here"border:
+                    2 columns
+                    3 rows
+                    May use pixels, em, %'s like normal
+
+                */  
+                /*grid-template-columns: 100px auto;
+                grid-template-rows: 30% 10% 60%;*/
+                
+                
+                /* grid-gap: 3px --> deprecated*/
+                gap: 3px;
+
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </body>
+</html>

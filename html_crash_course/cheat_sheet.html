@@ -1,0 +1,210 @@
+<!--Notes-->
+<!--  -->
+<!--index.html root/home page-->
+
+<!--Basic Anatomy of any HTML-->
+
+<!--HTML5-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- rendered in your 'tab'-->
+        <!--page title, links to css, javascript files, metadata, keywords, description-->
+        <title>
+            HTML Cheat Sheet
+        </title>
+    </head>
+
+    <body>
+
+        <a href="blog.html">Go to blog</a>
+
+        <!--actual markup for rendering-->
+        <h1>Heading One</h1>
+        <h2>Heading Two</h2>
+        <h3>Heading Three</h3>
+        <h4>Heading Four</h4>
+        <h5>Heading Five</h5>
+        <h6>Heading Six</h6>
+
+        <p>Lorem, ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit. Aperiam, vel.</p>
+
+                <!--Inline Elements-->
+        <!--Do not start on a new line-->
+        <!--Take only the necessary width-->
+        <!-- <div>, <h1>-<h6>, <p>, <form> -->
+
+        <!--Block Elements-->
+        <!--Start on a new line-->
+        <!--Take full width avaliable-->
+        <!-- <span>, <img>, <a> -->
+
+        <!-- HTML 5 for attention/"bold" -->
+        <strong>strong</strong>
+
+        <!-- HTML 5 for attention/"italics" -->
+        <em>dolor</em>
+
+        <a href="http://google.com" target="_blank">link</a>
+
+        <!--Lists-->
+        <ul>
+            <li>List Item A</li>
+            <li>List Item B</li>
+            <li>List Item C</li>
+            <li>List Item D</li>
+            
+        </ul>
+
+        <ol>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <li>List Item 4</li>
+            
+        </ol>
+
+        <!--Tables-->
+        <!--For tabular data only! use CSS for your layout-->
+        <table>
+            <thead>
+                <!--Headings of each column-->
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <!--Row-->
+                <tr>
+                    <td>
+                        Pablo Orellana
+                    </td>
+                    <td>
+                        thepabloski@gmail.com
+                    </td>
+                    <td>
+                        26
+                    </td>
+                </tr>
+
+                <!--Row-->
+                <tr>
+                    <td>
+                        Rachel Eby
+                    </td>
+                    <td>
+                        racheleby@gmail.com
+                    </td>
+                    <td>
+                        27
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <hr>
+        <!--Forms-->
+        <!--Needs backend, Go, PHP, etc.-->
+        <form action="{resource location}" method="{HTTP VERB}">
+            <div> <!--To put the inline items in their own blocks-->
+
+                    <label>First Name</label>
+                    <!--"placeholder" HTML5 -->
+                    <input type="text" name="{for server-side programming - grabbing value of form}" placehodler="Enter First Name">
+                </form>
+            </div>
+            <div>
+                    <label>Last Name</label>
+                    <input type="text" name="{for server-side programming - grabbing value of form}">
+                
+            </div>
+            <div>
+                    <label>Email</label>
+                    <input type="email" name="{for server-side programming - grabbing value of form}">
+                    <!--Should look up HTML input types-->
+            </div>
+            <div>
+                    <label>Message</label>
+                    <textarea name="message"></textarea>
+                    <!--Should look up HTML input types-->
+            </div>
+            <div>
+                <label>Biology</label>
+                <select name="biology">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <!--dropdown-->
+                </select>
+            </div>
+            <div>
+                <!--HTML 5-->
+                <label>Age</label>
+                <input type="number" name="age" value="30">
+                <!--lets you increment up/down-->
+            </div>
+            <div>
+                <!--HTML 5-->
+                <label>Birthday:</label>
+                <input type="date" name="birthday">
+                <!--mm/dd/yyyy along w/ HTML button for calendar-->
+            </div>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+
+
+        <!-- Button -->
+        <button click="someFunction.js">Click Me</button>
+        <div>
+            <!--Image-->
+            <!--Self-closing-->
+            <!--Programmatically populated on the backend-->
+            <!--alt if it can't be found-->
+            <a  href="images/sample.jpeg">
+                <img src="images/sample.jpeg" alt="My Sample Image">
+            </a>
+        </div>
+
+        <!--Quotations-->
+        <blockquote cite="https://www.google.com">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima totam beatae ratione et corrupti fuga deleniti repudiandae eos officiis itaque dicta dolore culpa sint alias possimus quas nulla est molestiae quia corporis, sequi architecto accusamus debitis doloribus. Quaerat culpa corporis ea assumenda alias ipsam eligendi eaque doloribus harum sapiente deserunt quam porro laboriosam at aut, voluptas numquam ipsa id voluptatibus quisquam ab architecto nihil iure. Saepe labore tenetur quidem ea velit id excepturi totam inventore mollitia cumque, illo at quos quasi voluptate odio magnam. Doloribus aut delectus ratione eligendi voluptatibus. Pariatur aspernatur illum rerum beatae maxime natus quam itaque corrupti.
+        </blockquote>
+
+        <p>The <abbr title="World Wide Web">WWW</abbr> is awesome</p>
+        <p><cite><abbr title="Hypertext Markup Language">HTML</abbr>crash course</cite> is awesome</p>        
+
+
+
+        <!--HTML 5 Semantics-->
+        <!--Describe their meaning to both the browser and developer-->
+        <!--
+            header  - logo, social media
+            nav     - navbar 
+            footer  - copyright, footer, privacy links
+            aside   - sidebar content
+            main    -
+            article - for blogs/each post
+            section - copy text on home page
+            details
+
+            |----------------|
+            | header         |
+            |----------------|
+            | nav            |
+            |----------------|
+            |section | aside |
+            |--------|       |
+            |--------|       |
+            |article |       |
+            |----------------|
+            | footer         |
+            |----------------|
+        -->
+
+    </body>
+</html>
