@@ -14,7 +14,7 @@
 }
 /* flex:<flex-grow><flex-shrink><flex-basis> */
 
-/*default*/
+/* default */
 .item{
     flex: 0 1 auto;
 }
@@ -23,4 +23,24 @@
 1: implies items will shrink when necessary
 auto: width of items depends on content
 */
+```
+
+```css
+/* One Value, unitless number: flex-grow*/
+flex: 2;
+
+/* One Value, unitless number: flex-basis*/
+flex: 10em;
+flex: 30px;
+
+/* flex: none | initial | auto */
+
+/* Two values: flex-grow | flex-basis */
+flex: 1 30px;
+
+/* Two values: flex-grow | flex-shrink */
+flex: 2 2;
+
+/* Three values: flex-grow | flex-shrink | flex-basis */
+flex: 1 2 2 10%;
 ```

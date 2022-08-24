@@ -3,6 +3,24 @@
 See the video [here](https://scrimba.com/learn/cssgrid/intro-to-the-css-grid-course-cg9PpTb)
 
 
+## Chapters
+
+* [Chapter1](chapter1/readme.md)
+* [Chapter2](chapter2/readme.md)
+* [Chapter3](chapter3/readme.md)
+* [Chapter4](chapter4/readme.md)
+* [Chapter5](chapter5/readme.md)
+* [Chapter6](chapter6/readme.md)
+* [Chapter7](chapter7/readme.md)
+* [Chapter8](chapter8/readme.md)
+* [Chapter9](chapter9/readme.md)
+* [Chapter10](chapter10/readme.md)
+* [Chapter11](chapter11/readme.md)
+* [Chapter12](chapter12/readme.md)
+* [Chapter13](chapter13/readme.md)
+* [Chapter14](chapter14/readme.md)
+* [Chapter15](chapter15/readme.md)
+
 ### Misc. Notes
 
 #### CSS Selectors

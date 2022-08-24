@@ -1,0 +1,64 @@
+.my-container {
+    font-size: 1.5rem;
+    display: flex;
+    /* implicit*
+    width: content-width
+    height: equal*/
+}
+
+/* this is the common issue/approach
+Float and unequal heights exist
+*/
+/* .item1 {
+    background-color: firebrick;
+    float: left;
+    width: 30%;
+}
+
+
+.item2 {
+    background-color: forestgreen;
+    float: right;
+    width: 70%;
+} */
+
+.item1 {
+    background-color: firebrick;
+}
+
+
+.item2 {
+    background-color: forestgreen;
+}
+
+
+
+/* At this stage, depending on your zoom in resolution, cards footers will be unequal
+   Placement of the footer is dependent on the body content
+*/
+.cards {
+    display: flex;
+}
+
+.card {
+    font-size: 1.5rem;
+    border: 4px solid black;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-body {
+    /* we are telling the body to grow to fill up the available space wherever possible*/
+    /* Typical Examples:
+       * Shipping Addresses in e-commerce
+       * Product Information w/ Product Image, Product Description (card body), buttons (as footer) */
+    flex: 1;
+}
+
+.card .footer{
+    padding: 5px;
+    background-color: grey;
+}

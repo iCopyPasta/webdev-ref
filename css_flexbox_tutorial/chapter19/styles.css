@@ -1,0 +1,39 @@
+nav{
+    font-size: 2rem;
+    background-color: #f1f1f1;
+    justify-items: space-around;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+    /*justify-content: space-around; */
+    /* by default, hover is only one the actual contents, not in the
+    remaining space */
+    /* with default setup, will end up w/ spacing:
+    space around the items
+    make the space apart of the item - like padding to the text
+    */
+}
+
+nav ul li{
+    /*cursor: pointer;
+    padding: 0.5rem;*/
+    text-align: center;
+    flex: auto;
+}
+
+nav ul li:hover {
+    background-color: #555;
+    color: white;
+}
+
+@media only screen and (max-width: 500px) {
+    nav ul{
+        /* from row to column --> top to bottom*/
+        flex-direction: column;
+    }
+}
