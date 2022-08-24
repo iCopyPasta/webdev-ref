@@ -1,0 +1,17 @@
+.container {
+    border: 1px solid black;
+    height: 100%;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 100px);
+    justify-content: center; /*default is start*/
+    align-content: center;
+    /*
+        space-between - as much space as possible on row
+        space-evenly - evenly spaced on row
+        space-round - each of items have half-sized space on either end
+    */
+
+}
+

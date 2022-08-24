@@ -1,0 +1,63 @@
+.container {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 200px 40px;
+}
+
+.header {
+    grid-column-start: 1; /*start at 1st column LINE*/
+    grid-column-end: 3;   /*end at 3rd column LINE*/
+
+    /* question, but we have two columns?!*/
+    /* Grid Lines (see grind_lines.png) for full visual*/
+    /* line 1  <column> line 2 <column> line 3*/
+    grid-column: 2/-1;
+}
+
+.menu {
+    grid-row: 1/3; 
+}
+
+/* question remains? how to make menu/content flexible/dynamic*?/
+/* 1fr 4fr? --> problem is still stuck at two column structure*/
+.content {
+    grid-column: 2/-1;
+}
+
+
+
+.footer {
+    /*shorthand*/
+    /*grid-column: 1/3;
+    grid-column: 1/span 2;*/
+    grid-column: 1/-1; /* last in the list*/
+    /* we might not know how many we have*/
+}
+
+
+/* exercise --> try to make "MENU" appear on the right-hand side*/
+.container {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 200px 40px;
+}
+
+.header {
+    grid-column:1/-2;
+    grid-row: 1/2;
+}
+
+.menu {
+    grid-row: 1/3; 
+}
+
+.content {
+    grid-column: 1/-2;
+}
+
+.footer {
+    grid-column: 1/-1; 
+}
+

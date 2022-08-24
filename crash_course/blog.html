@@ -1,0 +1,80 @@
+<!--Notes-->
+<!--  -->
+<!--index.html root/home page-->
+
+<!--Basic Anatomy of any HTML-->
+
+<!--HTML5-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- rendered in your 'tab'-->
+        <!--page title, links to css, javascript files, metadata, keywords, description-->
+        <title>
+            My Blog
+        </title>
+
+        <meta name="description" content="Awesome blog by Pablo Orellana">
+        <meta name="keywords" content="web design blog, web dev blog, Company Name LLC">
+        <style type="text/css">
+            #main_header{
+                text-align: center;
+                background-color: black;
+                color:white;
+                padding: 1em;
+            }
+            #main_footer{
+                text-align: center;
+                font-size: large;
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header id="main_header">
+            <h1>My Website</h1>
+        </header>
+
+        <a href="cheat_sheet.html">Go to index</a>
+
+        <section>
+            <article class="post">
+                <h3>Blog Post One</h3>
+                <small>Posted by Pablo Orellana</small>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit assumenda aut quod quaerat aspernatur et, voluptates fuga perferendis laboriosam doloremque facilis debitis quo impedit consequatur autem incidunt delectus quis hic nisi porro excepturi eligendi. Non sint labore excepturi. Voluptate ipsam ea pariatur sit ex! Asperiores, nisi neque culpa architecto quae iste dolor in ipsum eligendi possimus voluptatem exercitationem eaque accusantium inventore aut explicabo suscipit repellat voluptates eius. Ut, at dolorem aliquid nulla nihil ratione! Ea minima magni alias voluptatibus consectetur? Quisquam unde mollitia ipsam! Consequuntur quibusdam voluptates, molestiae saepe culpa mollitia at nostrum a inventore sint quia quam. Obcaecati!</p>
+                <a href="{{ link }}">Read More</a>
+            </article>
+            <article class="post">
+                <h3>Blog Post Two</h3>
+                <small>Posted by Pablo Orellana</small>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit assumenda aut quod quaerat aspernatur et, voluptates fuga perferendis laboriosam doloremque facilis debitis quo impedit consequatur autem incidunt delectus quis hic nisi porro excepturi eligendi. Non sint labore excepturi. Voluptate ipsam ea pariatur sit ex! Asperiores, nisi neque culpa architecto quae iste dolor in ipsum eligendi possimus voluptatem exercitationem eaque accusantium inventore aut explicabo suscipit repellat voluptates eius. Ut, at dolorem aliquid nulla nihil ratione! Ea minima magni alias voluptatibus consectetur? Quisquam unde mollitia ipsam! Consequuntur quibusdam voluptates, molestiae saepe culpa mollitia at nostrum a inventore sint quia quam. Obcaecati!</p>
+                <a href="{{ link }}">Read More</a>
+            </article>
+            <article class="post">
+                <h3>Blog Post Three</h3>
+                <small>Posted by Pablo Orellana</small>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit assumenda aut quod quaerat aspernatur et, voluptates fuga perferendis laboriosam doloremque facilis debitis quo impedit consequatur autem incidunt delectus quis hic nisi porro excepturi eligendi. Non sint labore excepturi. Voluptate ipsam ea pariatur sit ex! Asperiores, nisi neque culpa architecto quae iste dolor in ipsum eligendi possimus voluptatem exercitationem eaque accusantium inventore aut explicabo suscipit repellat voluptates eius. Ut, at dolorem aliquid nulla nihil ratione! Ea minima magni alias voluptatibus consectetur? Quisquam unde mollitia ipsam! Consequuntur quibusdam voluptates, molestiae saepe culpa mollitia at nostrum a inventore sint quia quam. Obcaecati!</p>
+                <a href="{{ link }}">Read More</a>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Categories</h3>
+            <nav>
+                <ul>
+                    <li><a href="#">Category 1</a></li>
+                    <li><a href="#">Category 2</a></li>
+                    <li><a href="#">Category 3</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <footer>
+            <p>Copyright &copy; 2019, Pablo Orellana</p>
+        </footer>
+
+    </body>
+</html>
