@@ -1,5 +1,15 @@
 // To be used everywhere
 
+// Container
+.container {
+    max-width: $max-width;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+
 // Text Styles
 .x-larg {
     font-size: 4rem;
@@ -16,6 +26,10 @@
 .lead {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.text-primary {
+    color: $primary_color
 }
 
 // Backgrounds
@@ -103,8 +117,6 @@
     }
 }
 
-
-
 // Overlays
 .dark-overlay {
     height: 100%;
@@ -113,4 +125,29 @@
     top: 0;
     left: 0;
     background-color: rgba($color: #000000, $alpha: 0.7);
+}
+
+// Alerts
+.alert {
+    padding: 0.8rem;
+    margin: 1rem;
+    opacity: 0.9; // a little translucent
+    background: $light_color;
+    color: #333;
+
+    &.alert-primary {
+        @include set-background($primary_color);
+    }
+
+    &.alert-dark {
+        @include set-background($dark_color);
+    }
+
+    &.alert-success {
+        @include set-background($success_color);
+    }
+
+    &.alert-danger {
+        @include set-background($danger_color);
+    }
 }
