@@ -1,0 +1,85 @@
+@media(max-width: 700px) {
+    .hide-sm {
+        display: none;
+        // hides some columns of info
+    }
+
+    .container {
+        // 6 rem by default
+        // bigger on mobile
+        margin-top: 8rem;
+    }
+
+    // Text Styles
+    .x-large {
+        font-size: 3rem;
+    }
+
+    .large {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    // navbar
+    .navbar {
+        display: block;
+        align-items: row;
+        text-align: center;
+
+        ul {
+            text-align: center;
+            justify-content: center;
+        }
+    
+        h1 {
+            // pushes H1 as they're close together
+            margin-bottom: 1rem;
+        }
+    }
+
+    .dash-buttons {
+        a {
+            display: block;
+            // consume full width
+            width: 100%;
+            // so they're not right on top of each other
+            margin-bottom: 0.2rem;
+        }
+    }
+
+    // Profiles
+    .profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        ul {
+            display: none;
+        }
+    }    
+
+    .profile-grid {
+        grid-template-areas:
+        'top'
+        'about'
+        'exp'
+        'edu'
+        'github';
+    }
+
+    .profile-about {
+        .skills {
+            flex-direction: column;
+        }
+    }
+
+    // Posts
+    .post {
+        grid-template-columns: 1fr;
+        a, button {
+            padding: 0.3rem 0.4rem;
+        }
+    }
+}
