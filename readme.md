@@ -12,12 +12,19 @@ Lessons on HTML/CSS/JavaScript and other Full-Stack Web Developer concepts
 * Expectations of modern problems
   * [responsive_design_tutorial](responsive_design_tutorial/readme.md)
 * CSS3 Grid Explained
-  * covers high-level overview and many examples
-  * [responsive_design_tutorial](responsive_design_tutorial/readme.md)
+  * Walks through the design of CSS3 grid and covers high-level overview and many examples
+  * Intended for layout-first approach
+  * [css_grid_tutorial](css_grid_tutorial/readme.md)
 * CSS3 Flexbox Explained
   * covers high-level overview and many examples
-  * [responsive_design_tutorial](responsive_design_tutorial/readme.md)
+  * Intended for content-first approach
+  * [css_flexbox_tutorial](css_flexbox_tutorial/readme.md)
 * SASS Basics
+   * covers high-leve abilities/intention along with examples of Sass as a pre-processor to CSS
+   * [SASS Basics](https://sass-lang.com/guide)
+* Social Network Theme Example
+   * Another website example covering HTML5/CSS3/SASS techniques
+   * [social_network_ex](social_network_ex/readme.md)
 
 ## Article Expansion
 
