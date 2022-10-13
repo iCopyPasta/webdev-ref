@@ -16,3 +16,9 @@ Manipulating and transitioning between 'states'
 * So how do we tell React something changed and certain part of the vDOM should be re-eval'd?
 
 ## State
+
+ReactJS uses "hooks", denoted with the naming convention ```use```
+
+```javascript
+import React, { useState } from 'react';
+```

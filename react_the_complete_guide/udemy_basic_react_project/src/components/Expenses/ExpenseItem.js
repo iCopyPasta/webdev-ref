@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // how is a component written in a react? 
 // its just a function! 
@@ -22,11 +22,22 @@ import Card from '../UI/Card';
 
 const ExpenseItem = (props) => {
 
-    // Convention suggestion - name via <event>Handler
+    // ReactJS "hook"
+    // Array destructuring
+    // var itself, updated function
+    // convention <val> set<Val>
 
+    
+    const [title, setTitle] = useState(props.title); 
+
+    // Convention suggestion - name via <event>Handler
     // Overall component function doesn't re-execute by default, including code presented here
     const clickHandler = () => {
-        console.log('Clicked!');
+        setTitle('Updated!'); 
+
+        // notes: will show the initial value
+        // the setTitle/setState is scheduled to React for computation
+        console.log(title);
     };
 
     // for all Default HTML events, there is a prop equivalent
@@ -48,7 +59,7 @@ const ExpenseItem = (props) => {
             <ExpenseDate date={props.date}>
             </ExpenseDate>
             <div className="expense-item__description">
-                <h2>{props.title}</h2>
+                <h2>{title}</h2>
                 <div className="expense-item__price">${props.amount}</div>
             </div>
             <button onClick={clickHandler}>Change Title</button>
