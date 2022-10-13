@@ -41,3 +41,25 @@ React uses a "Declarative Approach"
 Can pass data to custom component by adding attribute(s).  
 
 **Prop**ertie**s**
+
+# JSX deeper dive
+
+## JSX - human readable
+```javascript
+  return (
+    <div>
+      <h2>Let's get started!</h2>
+        <div>
+            <Expenses expenses={expenses}></Expenses>
+        </div>
+    </div>
+  );
+```
+
+## JSX - decomposition
+```javascript
+<div>
+  <h2>Let's get started!</h2>
+  <Expenses items={expenses} />
+</div>
+```
