@@ -17,6 +17,14 @@ Manipulating and transitioning between 'states'
 
 ## State
 
+* if you have data, which might change, and where changes to that data should be reflected on that user interface, you need state - regular variables will not do
+* separated on a per-component instance: 
+  * managed independently by React
+  * registers for a component instance - every instance gets its own state
+
+* A state can be updated other than user events
+  * HTTP requests are also a good candidate for updating state
+  * A timer via ``` setTimeout()```
 ReactJS uses "hooks", denoted with the naming convention ```use```
 
 ```javascript

@@ -27,7 +27,9 @@ const ExpenseItem = (props) => {
     // var itself, updated function
     // convention <val> set<Val>
 
-    
+    // managed independently by React
+    // registers for a component instance - every instance gets its own state
+    // state is managed for us - "latest title state"
     const [title, setTitle] = useState(props.title); 
 
     // Convention suggestion - name via <event>Handler
