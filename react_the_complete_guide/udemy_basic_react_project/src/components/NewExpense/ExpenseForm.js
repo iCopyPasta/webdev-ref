@@ -1,4 +1,4 @@
-import React, {useReact, useState} from 'react';
+import React, {useState} from 'react';
 
 
 import './ExpenseForm.css';
