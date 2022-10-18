@@ -4,11 +4,24 @@ import ExpenseForm from './ExpenseForm';
 
 import './NewExpense.css';
 
-const NewExpense = () => {
+const NewExpense = (props) => {
 
+    const saveExpenseDataHandler = (enteredExpenseData) => {
+        const expenseData = {
+            ...enteredExpenseData,
+            id: Math.random().toString()
+        };
+
+        props.onAddExpense(expenseData);
+    };
+
+    // convention to make it clear
+    // the value should be a function inside the child component
+    // and based "on" this event
     return(
         <div className="new-expense">
-            <ExpenseForm/>
+            <ExpenseForm 
+                onSaveExpenseData={saveExpenseDataHandler}/>
         </div>
     )
 }

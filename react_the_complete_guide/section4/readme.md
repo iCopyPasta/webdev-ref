@@ -30,3 +30,12 @@ ReactJS uses "hooks", denoted with the naming convention ```use```
 ```javascript
 import React, { useState } from 'react';
 ```
+
+## Two-Way Binding/Lifting the State Up
+
+* Not just listening to a change, but 'reacting' and can reset programmatically
+Process  
+* Moving data from a child to a parent
+* receive a prop with a function
+* call that function in the child, passing constructed data, "lifting the data up" to parent
+* onCustom will then be called and alter data
