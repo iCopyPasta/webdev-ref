@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 
 import ExpenseFilter from "./ExpenseFilter";
-import ExpenseItem from "./ExpenseItem";
+import ExpenseList from "./ExpenseList";
 import Card from "../UI/Card";
 
 import "./Expenses.css";
+
 
 // listen to changes on dropdown
 // when user picks a new year
@@ -37,21 +38,16 @@ const Expenses = (props) => {
     // Presentational/Stateless/Dumb
     // some components manage state - Expenses
     // some just present data       - ExpenseItem
+
     return (
         <Card className="expenses">
             <ExpenseFilter 
                 selected={enteredFilterYear}
                 onYearPicked={handleYearPicked}
             />
-            {reducedArray.map((expense) => (
-                <ExpenseItem
-                    key={expense.id}
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date}
-                />
-            ))}
+            <ExpenseList items={reducedArray}/>
         </Card>
     );
 }
+
 export default Expenses;
