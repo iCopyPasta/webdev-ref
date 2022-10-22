@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 
 import ExpenseFilter from "./ExpenseFilter";
 import ExpenseList from "./ExpenseList";
+import ExpenseChart from "./ExpensesChart";
 import Card from "../UI/Card";
 
 import "./Expenses.css";
-
 
 // listen to changes on dropdown
 // when user picks a new year
@@ -45,6 +45,7 @@ const Expenses = (props) => {
                 selected={enteredFilterYear}
                 onYearPicked={handleYearPicked}
             />
+            <ExpenseChart expenses={reducedArray}/>
             <ExpenseList items={reducedArray}/>
         </Card>
     );

@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 
-
 import './ExpenseForm.css';
-
-import ExpenseFormViews from "./NewExpense";
 
 const ExpenseForm = (props) => {
 
@@ -79,7 +76,7 @@ const ExpenseForm = (props) => {
 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         };
 
