@@ -4,15 +4,9 @@ import ExpenseForm from './ExpenseForm';
 
 import './NewExpense.css';
 
-const ExpenseFormViews = {
-    defaultView: "defaultView",
-    selectView: "selectView"
-};
-
-
 const NewExpense = (props) => {
 
-    const [desiredView, setDesiredView] = useState(ExpenseFormViews.defaultView)
+    const [isEditing, setIsEditing] = useState(false)
 
     const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {
@@ -21,13 +15,15 @@ const NewExpense = (props) => {
         };
 
         props.onAddExpense(expenseData);
+        setIsEditing(false);
     };
 
-    const changeDesiredViewHandler = (desiredView) => {
-        setDesiredView(desiredView);
-        console.log("changeDesiredViewHandler");
-        console.log(desiredView);
+    const startEditingHandler = () => {
+        setIsEditing(true);
+    }
 
+    const stopEditingHandler = () => {
+        setIsEditing(false);
     }
 
     // convention to make it clear
@@ -35,10 +31,12 @@ const NewExpense = (props) => {
     // and based "on" this event
     return(
         <div className="new-expense">
-            <ExpenseForm
-                desiredView={desiredView}
-                onChangeView={changeDesiredViewHandler}
-                onSaveExpenseData={saveExpenseDataHandler}/>
+            {!isEditing && 
+                <button onClick={startEditingHandler}>Add New Expense</button>}
+            {isEditing &&
+                <ExpenseForm
+                    onCancel={stopEditingHandler}
+                    onSaveExpenseData={saveExpenseDataHandler}/>}
         </div>
     )
 }
