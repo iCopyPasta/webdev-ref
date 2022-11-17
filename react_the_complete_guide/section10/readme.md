@@ -82,3 +82,23 @@
 * these act as globals
   * may have multiple contexts in the application
   * can use via <Context.Consumer> or a React Hook
+
+* in most cases, use props to pass to components, keeps them re-usable
+  * if you would be forwarding data through many props/components to a specific component and purpose, use context 
+
+* Context is best for state-wide configuraiton/management that spans across components or the entire app
+* want to write components such that they accept props and therefore are completely reusable
+
+### Context Limitations
+* React Context is NOT Optimized for high frequency changes
+* Components should still be configurable via props and short "prop chains" might not need any replacement
+
+## Rules of Hooks
+
+* Only call React Hooks in React Functions
+  * React Component Functions
+  * Custom Hooks
+* Only call React Hooks at the **Top Level**
+  * Don't call them in nested funcitons
+  * Don't call them in any block states
+* useEffect() - ALWAYS add everything you refer to inside of useEffect() as a dependency
