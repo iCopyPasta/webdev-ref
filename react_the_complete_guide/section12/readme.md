@@ -62,3 +62,41 @@
       * similar to useReducer
     
 
+## Understanding State Scheduling & Batching
+
+### State Scheduling
+* Our Code - with useState() hook
+* initial state
+* in component, we update w/ callback returned from hook
+  * state updating functions schedules a data update
+  * will be scheduled against any other tasks React must do
+    * some might be more intensive and then therefore not handled immediately
+    * guarantees order of the same state
+
+  * function format from previous - gives you the latest, not from when the call was scheduled
+  ```
+  setFunctionFromHook( (value) => value_modification);
+  ```
+
+### State Batching
+* within same synchrnous code, if multiple states are updated, React batches these together
+* This means one overall process to make multiple changes at once
+
+### useMemo
+* A React hook to store data and not re-return, similar to useCallback that stores a function
+* Useful for saving data that hasn't changed and is **expensive to compute**
+```javascript
+import React, { useMemo } from 'react';
+
+// will otherwise pass a new list each time 
+const listItems = useMemo(() => [1,2,3], []);
+
+<DemoList items={listItems}>
+
+// instead of re-calculating every time
+// only re-build if item changes
+const sortedList = useMemo(() => {
+  const {items} = props;
+  return items.sort( (a,b) => a-b);
+}, [items]);
+```
