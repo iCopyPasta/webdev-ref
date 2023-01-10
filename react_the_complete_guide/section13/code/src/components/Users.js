@@ -3,13 +3,6 @@ import User from './User';
 
 import classes from './Users.module.css';
 
-const DUMMY_USERS = [
-  { id: 'u1', name: 'Max' },
-  { id: 'u2', name: 'Manuel' },
-  { id: 'u3', name: 'Julie' },
-];
-
-
 // in classes
 //   define initial
 //   update when needed
@@ -29,6 +22,13 @@ class Users extends Component {
 
   }
 
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      // will bubble up call stack - will crash if not handled above
+      throw new Error("No users provided!");
+    }
+  };
+
   // -----------------------------------------
   // group together functionality in class
   // -----------------------------------------
@@ -44,7 +44,7 @@ class Users extends Component {
   render() {
     const usersList = (
       <ul>
-        {DUMMY_USERS.map((user) => (
+        {this.props.users.map((user) => (
           <User key={user.id} name={user.name} />
         ))}
       </ul>
