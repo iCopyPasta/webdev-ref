@@ -35,7 +35,22 @@ From inside App to backend
     const data = await response.json();
     console.log(data);
   }
+  ```
 
+  * may wish to convert dynamically from .json objects to props or javascript objects
+  ```javascript
+  const data = await response.json();
+
+  const loadedMovies = [];
+
+  for (const key in data) {
+    loadedMovies.push({
+      id: key,
+      title: data[key].title,
+      openingText: data[key].openingText,
+      releaseDate: data[key].releaseDate,
+    });
+  }
   ```
 
 # Useful Links
