@@ -24,3 +24,6 @@ Built-In ones we've used:
 ## How to build Customer Hooks
 * must use the "use<>" nomenclature to let React know you guarantee the same behaviors
 and it can guarantee management per component-instances
+
+## More about bind()
+[bind](https://academind.com/tutorials/function-bind-event-execution)
