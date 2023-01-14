@@ -33,3 +33,8 @@ Working with Values, Validation & State
     * logging and comparisons frequently is overkill
 * Instant Validation, using the State/Reducer
     * If you want to reset input
+
+##### Avoiding Code Re-Use
+* Use strategic Sub JSX Elements
+    * Let the overall form know via props
+* Custom Hook
