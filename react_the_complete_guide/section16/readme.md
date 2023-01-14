@@ -34,7 +34,16 @@ Working with Values, Validation & State
 * Instant Validation, using the State/Reducer
     * If you want to reset input
 
-##### Avoiding Code Re-Use
+##### Avoiding Code Re-Use/Possible Re-used
 * Use strategic Sub JSX Elements
     * Let the overall form know via props
 * Custom Hook
+* Outsource Form logic
+  * [Formik](https://formik.org/docs/overview)
+  * define fields + validation logic, let Formik handle the rest, similar to our code here
+  * they have more logic + code, e.g. regex on email
+* Build Overall Form Component
+* Build More Custom Hooks
+  * return pre-configured inputs/forms
+  * useForm - readily configured input elements
+  * [demo](https://academind.com/tutorials/reactjs-a-custom-useform-hook)
