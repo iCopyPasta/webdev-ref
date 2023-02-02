@@ -86,3 +86,25 @@ npm install redux react-redux
 
 ### Using Redux on its own (Pure JavaScript)
 * see [code/explore_redux_demo/readme.md](code/explore_redux_demo/readme.md)
+
+### Redux State - Reference vs. Primitives:
+* see [https://academind.com/tutorials/reference-vs-primitive-values/](https://academind.com/tutorials/reference-vs-primitive-values/)
+
+### Redux Challenges
+* Action Types/Identifiers - avoid typos!
+* Amount of Data to manage
+  * bigger state objects get - a lot of state must be copied
+* use Reducer gets very large
+* Redux file might unmanageable, too
+* Don't change exisiting state
+  * may change nested data, potentially
+
+## Intro to Redux Toolkit
+* Redux Toolkit
+* [https://redux-toolkit.js.org/](https://redux-toolkit.js.org/)
+
+```bash
+npm install @reduxjs/toolkit
+
+yarn add @reduxjs/tookit
+```
