@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // connect - for class-based
 
 import classes from './Counter.module.css';
-import { counterActions } from '../store/index';
+import { counterActions } from '../store/counter';
 
 // Class-Based Version of Using Redux-datastore
 // class Counter extends Component {
@@ -80,7 +80,7 @@ const Counter = () => {
   const increaseHandler = () => {
     // payload == property to action object
     // {type: SOME_UNIQUE_REDUX_TOOL, payload: <>}
-    dispatch(counterActions.increase(10)) 
+    dispatch(counterActions.increase(10))
   };
 
   const decrementHandler = () => {
