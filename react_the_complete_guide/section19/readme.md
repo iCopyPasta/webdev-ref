@@ -17,3 +17,8 @@ Main question: where should side-effects and async tasks be executed?
 * Inside the action creators
   * Redux has solution that allows to perform side-effects/asynchronous apart of the creators
 
+### Misc Notes
+
+* React-Redux allows you to perform state modifications within the reducers
+* outside of the reducers, be careful about updating the reference
+  * never mutate reducer state
