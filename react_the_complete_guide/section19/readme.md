@@ -22,3 +22,22 @@ Main question: where should side-effects and async tasks be executed?
 * React-Redux allows you to perform state modifications within the reducers
 * outside of the reducers, be careful about updating the reference
   * never mutate reducer state
+
+### Were to put our logic? 
+
+#### Fat Reducers vs. Fat Components vs. Fat Actions
+* synchronous, side-effect free (i.e. data transformations)
+  * **prefer** reducers
+  * **avoid** action creators or components
+* asynchronous, side-effect creating
+  * **prefer** action creators or components
+  * **NEVER** use reducers
+
+
+### Thunk
+
+A function that delays an action until later/something else finishes.
+
+An action creator function that does NOT return the action itself, but
+another function which eventually returns the action.
+
