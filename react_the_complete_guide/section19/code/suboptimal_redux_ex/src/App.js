@@ -6,7 +6,7 @@ import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from "./components/UI/Notification";
 
-import { sendCartData } from "./store/cart-slice";
+import { sendCartData, fetchCartData } from "./store/cart-actions";
 
 // when file is parsed for the first time
 // when application is started
@@ -19,6 +19,10 @@ function App() {
   const cart = useSelector(state => state.cart);
   const notification = useSelector( state => state.ui.notification);
 
+  useEffect(()=>{
+    dispatch(fetchCartData());
+  }, [dispatch]);
+
   useEffect(() => {
 
     if(isInitial){
@@ -26,8 +30,10 @@ function App() {
       return;
     }
 
-    // redux toolkit detects this and executes for you
-    dispatch(sendCartData(cart));
+    if(cart.changed){
+      // redux toolkit detects this and executes for you
+      dispatch(sendCartData(cart));
+    }    
   }, [cart, dispatch])
 
   return (

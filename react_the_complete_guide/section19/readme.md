@@ -41,3 +41,8 @@ A function that delays an action until later/something else finishes.
 An action creator function that does NOT return the action itself, but
 another function which eventually returns the action.
 
+## Redux DevTools
+
+* in more complex with a lot of state and different slices/actions, hard to find errors
+* would be useful to look into the current store w/o looking into the UI
+* "redux devtools" - github repo - browser extension
