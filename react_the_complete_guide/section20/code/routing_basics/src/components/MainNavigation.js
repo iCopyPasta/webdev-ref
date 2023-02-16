@@ -18,7 +18,7 @@ const MainNavigation = () => {
                             className={isActiveFunc}
                             end>Home
                         </NavLink>
-                        <NavLink to="/products" className={isActiveFunc}>Products</NavLink>
+                        <NavLink to="products" className={isActiveFunc}>Products</NavLink>
                     </li>
                 </ul>
                 

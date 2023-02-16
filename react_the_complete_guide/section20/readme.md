@@ -28,3 +28,68 @@
 ```bash
 npm install react-router-dom
 ```
+### Relative and Absolute Paths
+
+* Absolute paths
+```javascript
+{
+  path: "/",
+  children: [
+    {
+      path: "/products"
+    }
+  ]
+}
+```
+  * /products and / are directly required in the browser
+
+* Relative Paths:
+```javascript
+{
+  path: "/root",
+  children: [
+    {
+      path: "products"
+    },
+    {
+      path: "products/:id"
+    }
+  ]
+}
+```
+* will let them be appended as "/root/products"
+
+May have issue in dependent code calls if using aboslute paths.
+* absolute - will assume domain name/\<location\>
+```javascript
+<p>
+    Go to <Link to="/products">the list of products</Link>
+</p>
+```
+* relative - will appended to the currently-active route
+```javascript
+<p>
+    Go to <Link to="products">the list of products</Link>
+</p>
+```
+
+# relative in Link
+
+Two options
+* Relative to Currently Active Path
+* Relative to Currently Active URL
+```javascript
+<p>
+    Go to <Link to="products" relative="">the list of products</Link>
+</p>
+```
+```
+<p><Link relative= "" to="..">Back</Link></p>
+relative="route" <-- default
+relative="path" <--URL facing
+/root
+  /products
+  /products/:id
+/root is the parent from our route/object definition
+
+```
