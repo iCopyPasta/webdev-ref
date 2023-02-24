@@ -25,23 +25,28 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import EditEventPage from "./pages/EditEventPage";
 import EventDetailPage from "./pages/EventDetailPage";
-import EventsPage from "./pages/EventsPages";
+import EventsPage from "./pages/Events";
 import ErrorPage from "./pages/ErrorPage";
 import NewEventPage from "./pages/NewEventPage";
 import RootLayout from "./pages/RootLayout";
 import EventsRootLayout from "./pages/EventsRoot";
+import { eventsPageLoader } from "./pages/Events";
 
+
+// loader wants function or error function
+// loader is done before element
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout/>,
+    errorElement: <ErrorPage/>,
     children: [
       { index: true, element: <HomePage/> },
       {
         path: "events", 
         element: <EventsRootLayout/>,
         children: [
-          { index: true, element: <EventsPage/> },
+          { index: true, element: <EventsPage/>, loader: eventsPageLoader},
           { path: ":eventId", element: <EventDetailPage/> },
           // side note: events/new vs. events/"new" as an eventId
           // React Router sees /new is more specific, and will prefer the later definition
@@ -50,7 +55,6 @@ const router = createBrowserRouter([
         ]
       }
     ],
-    errorElement: <ErrorPage/>
   },
   
 ]);

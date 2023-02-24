@@ -93,3 +93,21 @@ relative="path" <--URL facing
 /root is the parent from our route/object definition
 
 ```
+
+## React Router loader()
+
+* instead of trying to first render a page, then fetch data, then re-populate it
+* can instead use the React Router "loader()" to execute a function before trying to load the page
+* can use Promises to then use the yielded data immediately on rendering
+  * downside on delay time may affect user experience
+  * can handle with ```?```
+* You can use ```useLoaderData()``` in the element that's assigned to a route AND in all components that might be used inside that element
+* loader is called when we start navigating to it
+
+### Where to Store the Loader
+* Put loader in the Component File where it's responsible for "bringing it along"
+
+### Error Handling
+* can throw Responses
+* in the nearest errorElement, can use ```useRouteError```
+
