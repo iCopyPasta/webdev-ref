@@ -30,8 +30,14 @@ import ErrorPage from "./pages/ErrorPage";
 import NewEventPage from "./pages/NewEventPage";
 import RootLayout from "./pages/RootLayout";
 import EventsRootLayout from "./pages/EventsRoot";
-import { eventsPageLoader } from "./pages/Events";
 
+// import loaders
+import { eventsPageLoader } from "./pages/Events";
+import { eventDetailPageLoader, DeleteEventAction } from "./pages/EventDetailPage";
+
+// import actions
+
+import { newEventPageAction } from "./pages/NewEventPage";
 
 // loader wants function or error function
 // loader is done before element
@@ -47,11 +53,25 @@ const router = createBrowserRouter([
         element: <EventsRootLayout/>,
         children: [
           { index: true, element: <EventsPage/>, loader: eventsPageLoader},
-          { path: ":eventId", element: <EventDetailPage/> },
+          { 
+            path: ":eventId", 
+            id: 'event-detail',
+            // shared loader
+            loader:eventDetailPageLoader, 
+            children: [
+            { 
+              index: true,
+              element: <EventDetailPage/>,
+              action: DeleteEventAction
+            },
+            { 
+              path: "edit",
+              element: <EditEventPage/> }
+          ]}
+          ,
           // side note: events/new vs. events/"new" as an eventId
           // React Router sees /new is more specific, and will prefer the later definition
-          { path: "new", element: <NewEventPage/> },
-          { path: ":eventId/edit", element: <EditEventPage/> }
+          { path: "new", element: <NewEventPage/> , action: newEventPageAction},
         ]
       }
     ],

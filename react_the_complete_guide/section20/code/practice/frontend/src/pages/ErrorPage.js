@@ -15,10 +15,12 @@ const ErrorPage = () => {
 
     if (error.status === 404){
         title = "Not found!"
-        message = "Could not find resource or page"
+        message = "Page Not Found" 
     }
+
     // threw a response or other kind of object
     // threw a Response --> Error Object will included status
+    console.log(error);
     return (
         <Fragment>
             <MainNavigation>
@@ -27,7 +29,7 @@ const ErrorPage = () => {
             <PageContent
                 title = {title}
             >
-                <p>{message}</p>
+                <p>{message} - {error.status}</p>
             </PageContent>
         </Fragment>
 
