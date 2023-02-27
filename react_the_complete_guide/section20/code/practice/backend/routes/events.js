@@ -12,10 +12,6 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const events = await getAll();
-    // // INTRODUCED DELAY
-    // setTimeout(() => {
-    // }, 1500)
-
     res.json({ events: events });
 
   } catch (error) {
@@ -62,7 +58,10 @@ router.post('/', async (req, res, next) => {
 
   try {
     await add(data);
-    res.status(201).json({ message: 'Event saved.', event: data });
+    setTimeout(()=>{
+     res.status(201).json({ message: 'Event saved.', event: data });
+    }, 1500)
+     //res.status(201).json({ message: 'Event saved.', event: data });
   } catch (error) {
     next(error);
   }

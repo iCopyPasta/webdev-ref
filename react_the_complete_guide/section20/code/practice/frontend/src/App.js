@@ -36,8 +36,7 @@ import { eventsPageLoader } from "./pages/Events";
 import { eventDetailPageLoader, DeleteEventAction } from "./pages/EventDetailPage";
 
 // import actions
-
-import { newEventPageAction } from "./pages/NewEventPage";
+import { action as manipulateEventAction } from "./components/EventForm";
 
 // loader wants function or error function
 // loader is done before element
@@ -66,12 +65,18 @@ const router = createBrowserRouter([
             },
             { 
               path: "edit",
-              element: <EditEventPage/> }
+              element: <EditEventPage/>,
+              action: manipulateEventAction
+            }
           ]}
           ,
           // side note: events/new vs. events/"new" as an eventId
           // React Router sees /new is more specific, and will prefer the later definition
-          { path: "new", element: <NewEventPage/> , action: newEventPageAction},
+          { 
+            path: "new",
+            element: <NewEventPage/> ,
+            action: manipulateEventAction
+          },
         ]
       }
     ],
