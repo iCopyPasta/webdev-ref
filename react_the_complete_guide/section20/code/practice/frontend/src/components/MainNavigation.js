@@ -1,30 +1,47 @@
+import { NavLink } from 'react-router-dom';
+
 import classes from './MainNavigation.module.css';
-import { NavLink } from "react-router-dom";
+import NewsletterSignup from './NewsletterSignup';
 
-// can destructure on object provide by React Router
-const isActiveFunc = ({isActive}) => {
-  return isActive ? classes.active : undefined;
-};
-
-
-const MainNavigation = () => {
+function MainNavigation() {
   return (
     <header className={classes.header}>
       <nav>
         <ul className={classes.list}>
           <li>
-            <NavLink 
+            <NavLink
               to="/"
-              className={isActiveFunc}
-              end>Home</NavLink>
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink 
+            <NavLink
               to="/events"
-              className={isActiveFunc}>Events</NavLink>
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Events
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/newsletter"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Newsletter
+            </NavLink>
           </li>
         </ul>
       </nav>
+      <NewsletterSignup />
     </header>
   );
 }

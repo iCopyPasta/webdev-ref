@@ -3,17 +3,13 @@
 
 //import { Fragment, useEffect, useState } from 'react';
 
-import { Fragment } from 'react';
-import { useLoaderData, json } from 'react-router-dom';
+import { Suspense } from 'react';
+import { useLoaderData, json, defer, Await } from 'react-router-dom';
 
 import EventsList from '../components/EventsList';
 
-// execute on the client
-// can use any browser API
-// cookies, storage, etc. 
-// CAN'T use React Hooks as they're for components
-export const eventsPageLoader = async () => {
 
+const loadEvents = async () => {
     // React can handle Promises<Responses>
 
     const response = await fetch('http://localhost:8080/events');
@@ -27,8 +23,21 @@ export const eventsPageLoader = async () => {
         //throw new Response(JSON.stringify({message: "Could not fetch events"}), {status: 500});
         return json({message: "Could not fetch events"}, {status: 500});
     } else {
-        return response
+        const responseData = await response.json();
+        return responseData.events;
     }
+}
+
+// execute on the client
+// can use any browser API
+// cookies, storage, etc. 
+// CAN'T use React Hooks as they're for components
+export const eventsPageLoader = () => {
+
+    return defer({
+        // value must return Promise
+        events: loadEvents()
+    });
 };
 
 const EventsPage = () => {
@@ -64,20 +73,28 @@ const EventsPage = () => {
     // Will get final data yielded by promise
     // could move this into EventsList
     // but could not move it to RootLayout above
-    const data = useLoaderData();
 
     // if (data.isError) {
     //     return <p>{data.message}</p>
     // }
 
-    const events = data.events;
+    // deferring
+    // Suspense - to show fallback
+    // Await - main content
+
+    const {events} = useLoaderData();
 
     return (
-        // loads the closet loader
-
-        <Fragment>
-            <EventsList events={events}></EventsList>
-        </Fragment>
+        <Suspense
+            fallback={<p style={{textAlign: 'center'}}>Loading...</p>}
+            >
+            <Await resolve={events}>
+                {(loadedEvents)=>
+                    // once promise resolves
+                    <EventsList events={loadedEvents}></EventsList>    
+                }
+            </Await>
+        </Suspense>
     );
 };
 

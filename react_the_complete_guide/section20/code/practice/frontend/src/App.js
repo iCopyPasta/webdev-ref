@@ -38,6 +38,9 @@ import { eventDetailPageLoader, DeleteEventAction } from "./pages/EventDetailPag
 // import actions
 import { action as manipulateEventAction } from "./components/EventForm";
 
+import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
+
+
 // loader wants function or error function
 // loader is done before element
 const router = createBrowserRouter([
@@ -78,7 +81,12 @@ const router = createBrowserRouter([
             action: manipulateEventAction
           },
         ]
-      }
+      },
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
+        action: newsletterAction,
+      },
     ],
   },
   

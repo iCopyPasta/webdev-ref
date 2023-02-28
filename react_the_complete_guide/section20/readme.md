@@ -111,3 +111,29 @@ relative="path" <--URL facing
 * can throw Responses
 * in the nearest errorElement, can use ```useRouteError```
 
+### defer()
+
+```javascript
+export async function loader({request, params}){
+  const id = params.eventId;
+
+  return defer(
+    {
+      event: await loadEvent(id),
+      events: loadEvents()
+    }
+  )
+};
+```
+
+On a loader function, can ensure something shoud be fetched and promised before
+rendering with await (event), while we defer (load after moving to page) the other function data (events)
+
+### action
+
+On using the react-router-dom 
+```javascript
+<Form method={method}> 
+```
+
+you can then tie an ```action:``` and grab the required form elements before sending a request to a backend.
