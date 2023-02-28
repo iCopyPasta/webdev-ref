@@ -136,4 +136,42 @@ On using the react-router-dom
 <Form method={method}> 
 ```
 
-you can then tie an ```action:``` and grab the required form elements before sending a request to a backend.
+You can then tie an ```action:``` and grab the required form elements before sending a request to a backend.  
+
+You should use name and id for fields in the Form in order to use the React Router get functionalities.
+
+## Typical Pathways
+
+### Loader
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant L as loader()
+    participant R as React Router
+    participant B as backend
+
+    U->>L: Navigate to Page
+    L->>R: Determine Route and Component
+    R->>B: Determine GET data
+    B-->>R: GET JSON/format response (202, 404)
+    R-->>R: Handle Response Data
+    R-->>L: Response to render
+    L-->>U: Page View with Data
+```
+
+### Action
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant R as React Router
+    participant A as action()
+    participant B as backend
+
+    U->>R: User submits form with data to React Router
+    R->>A: Gives data to action
+    A->>A: Prepare backend request
+    A->>B: send POST/PATCH, etc.
+    B-->>A: GET JSON/format response (202, 404)
+    A-->>R: Response Data
+    R-->>U: Page View with Data
+```
