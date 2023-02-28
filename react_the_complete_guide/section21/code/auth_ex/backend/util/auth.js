@@ -2,6 +2,7 @@ const { sign, verify } = require('jsonwebtoken');
 const { compare } = require('bcryptjs');
 const { NotAuthError } = require('./errors');
 
+// dummy backend key - but don't ever hardcode keys in code! :D
 const KEY = 'supersecret';
 
 function createJSONToken(email) {
