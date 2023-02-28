@@ -145,7 +145,7 @@ You should use name and id for fields in the Form in order to use the React Rout
 ### Loader
 ```mermaid
 sequenceDiagram
-    participant U as User
+    actor U as User
     participant L as loader()
     participant R as React Router
     participant B as backend
@@ -162,7 +162,7 @@ sequenceDiagram
 ### Action
 ```mermaid
 sequenceDiagram
-    participant U as User
+    actor U as User
     participant R as React Router
     participant A as action()
     participant B as backend
