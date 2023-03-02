@@ -41,3 +41,37 @@ sequenceDiagram
   * e.g. OAuth2.0
   * validality is verified by private key on backend
 * client sends oktne along with requests to protected resources
+
+### Using React loaders for auth
+* can have a loader at the root retrieve data that is not just a URL
+* App.js has this called in the top root loader
+  * can use ```getAuthToken()``` with ```useRouterLoaderData()```
+```javascript
+{
+  id: "root",
+  loader: tokenLoader,
+}
+
+const token = useRouteLoaderData("root");
+```
+```javascript
+export const getAuthToken = () => {
+    const token = localStorage.getItem('token');
+    return token;
+};
+
+export const loader = () => {
+    return getAuthToken();
+};
+```
+```javascript
+export const checkAuthLoader = () => {
+  const token = getAuthToken();
+  
+  if (!token) {
+    return redirect('/auth');
+  }
+ 
+  return null;
+}
+```

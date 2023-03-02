@@ -44,6 +44,16 @@ export const action = async ({request}) => {
   }
 
   // soon: manage that token
-  return redirect("/");
+  const resData = await response.json();
 
+  const token = resData.token;
+
+  // where to store? 
+  // store in local storage - browser API
+  localStorage.setItem('token', token);
+  const expiration = new Date();
+  expiration.setHours(expiration.getHours() + 1);
+  localStorage.setItem('expiration', expiration.toISOString());
+
+  return redirect("/");
 }
