@@ -62,3 +62,9 @@
 * "index.js" is the root
 * for folders, the name becomes the path
 * the 'default'/landing is also "index.js" in that sub-folder
+
+### creating new NextJS projects
+
+```bash 
+npx create-next-app
+```
