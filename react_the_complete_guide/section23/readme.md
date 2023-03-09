@@ -68,3 +68,70 @@
 ```bash 
 npx create-next-app
 ```
+
+### Key Feature Deep Dive
+
+#### SEO and Page Pre-Rendering
+
+Problem explained:
+* if dynamic content is expected to be *fetch*'d AFTER loading, this content will not appear in SEO crawlers
+* the user experience might also NOT be the one we want to offer
+
+![Pre-Render](./PagePreRender.png)
+
+```javascript
+const HomePage = () => {
+
+
+  // behaving if we DID reach out to a backend
+  // in ReactJS (traditional)
+  //   useEffect() to control/fetch after hitting page
+  //     empty dependencies
+  //   useState() to manage GUI state
+  //   upon result, re-render result
+  
+  const [loadedMeetups, setLoadedMeetups] = useState([]);
+
+  // AFTER component function is executed
+  // this is executed twice
+  // re-rendering the 2nd cycle
+  useEffect(() => {
+    // send a http request and fetch data
+    // some Promise finished here
+    setLoadedMeetups(DUMMY_MEETUPS);
+  }, []); // this is emulating "hydration" once React is loaded
+
+  // we'd STILL have a problem with SEO
+  // content from SEO crawler is pre the empty unordered list (1st render cycle)
+
+  return (
+      <MeetupList meetups={loadedMeetups}></MeetupList>
+  );
+};
+
+export default HomePage;
+```
+
+* we can tell nextJS to fetch ahead of time and pre-render
+
+#### Static Site Generation (SSG)
+* typically should use this
+* page component is pre-rendered when you build application
+``` npm run build ```
+
+Can see output as follows:
+
+![NextJS Tree](./NextJS_SSG_preview.png)
+
+##### Problems
+* some websites could load *out-dated* content
+* pages are made in the BUILD process
+* pre-generated page would not know
+* can re-build and re-deploy when data changes
+  * some sites like blogs, shouldn't be a problem
+* in frequent websites
+  * "revalidate" - incremental static generation
+  * number of seconds until it re-generates page
+  * re-generated on the server - if there are requests for page
+
+#### Server-Side Rendering (SSR)
