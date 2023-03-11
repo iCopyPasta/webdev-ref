@@ -79,7 +79,30 @@ export const getStaticProps = async () =>{
     // so long as requests are coming in
     revalidate: 10
   };
-
 };
+
+// always runs on the server after deployment
+// export const getServerSideProps = async (context) =>{
+
+//   // working w/ auth? check session cookie!
+//   const req = context.req;
+
+//   const res = context.res;
+
+//   // example
+//   // fetch data from an API
+//   // or read files from filesystem
+//   // must always return Object
+//   // ALWAYS runs on the SERVER
+//   // can run things that might require credentials
+//   return (
+//     {
+//       props: {
+//         meetups: DUMMY_MEETUPS
+//       }
+//     }
+//   )
+
+// };
 
 export default HomePage;

@@ -135,3 +135,19 @@ Can see output as follows:
   * re-generated on the server - if there are requests for page
 
 #### Server-Side Rendering (SSR)
+* use ```getServerSideProps```
+* have access to context object
+  * incoming request
+  * returning response
+
+
+#### Which to choose? 
+* getServerSide - guaranteed to run for every request
+  * must wait for page to be generated
+  * don't have data that chagnes all the time - multiple times every second
+  * if you don't need access to request (like auth)
+  * use ```getStaticProps```
+    * can potentially store that on a CDN
+* getServerSide
+  * if you need concrete access to request
+  * changes multiple times every second
