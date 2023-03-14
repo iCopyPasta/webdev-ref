@@ -123,6 +123,9 @@ Can see output as follows:
 
 ![NextJS Tree](./NextJS_SSG_preview.png)
 
+### Implication
+* access to the database must be avaliable DURING BUILD TIME
+
 ##### Problems
 * some websites could load *out-dated* content
 * pages are made in the BUILD process
@@ -151,3 +154,55 @@ Can see output as follows:
 * getServerSide
   * if you need concrete access to request
   * changes multiple times every second
+
+### Deploying Next.js Projects
+
+use 
+```javascript
+import <Head> from "next/head"
+```
+in order for SEO + nice user experience
+
+
+* could use envvars for server creds
+* vercel by the same team who made NextJS - optimized for NextJS
+
+#### Deployment Steps:
+##### Using Vercel
+* import Git Repository
+* push to remote
+* Vercel will build, start, and deploy
+  * no build commands required
+* can put in unique Environment Variables
+* in MongoDB Cloud Atlas, allow access from anywhere
+
+##### Build Steps - manual
+```json
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+```
+
+```bash
+npm run build
+```
+* minify + optimize
+* ".next" which contains optimized files
+  * cache
+  * server/pages (SSG html)
+* npm start will start production server
+ * this .next is the build deployment
+
+#### NextJS Features
+* Next's ```javascript
+<Image>
+``` component
+
+* Can add Authentication, 
+* Login/Logout
+* Sessions with NextJS
+
+
