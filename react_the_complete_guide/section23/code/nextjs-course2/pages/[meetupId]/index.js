@@ -1,14 +1,27 @@
 import MeetupDetail from "@/components/meetups/MeetupDetail";
 
-const MeetupDetails = () => {
+import { MongoClient, ObjectId } from "mongodb";
+import Head from "next/head";
+import { Fragment } from "react";
+
+
+const MeetupDetails = (props) => {
   return (
-    <MeetupDetail
-      image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Madeleine_Paris.jpg/1280px-Madeleine_Paris.jpg"
-      alt="A First Meetup"
-      title="A First Meetup"
-      address="Some Street 5, Some City"
-      description="The meetup description"
-    />
+    <Fragment>
+      <Head>
+        <title>Edit {props.meetupData.title} </title>
+        <meta 
+          name="description"
+          content={props.meetupData.description}/>
+      </Head>
+      <MeetupDetail
+        image={props.meetupData.image}
+        alt={props.meetupData.title}
+        title={props.meetupData.title}
+        address={props.meetupData.address}
+        description={props.meetupData.description}
+      />
+    </Fragment>
   );
 };
 
@@ -18,22 +31,32 @@ const MeetupDetails = () => {
 export const getStaticPaths = async () => {
   // object where we describe dynamic segement values
   // for which page should be generated
+
+  // DURING BUILD PROCESS
+
+  const client = await MongoClient.connect("mongodb://root:example@mongo:27017/");
+  console.log(client);
+  const db = client.db();
+
+  const meetupsCollection = db.collection("meetups");
+
+  // only include the _id, but no other values
+  const meetups = await meetupsCollection.find({}, {_id: 1}).toArray();
+
+  client.close();
+
   return {
-    paths: [
-      { 
-        params: {
-          meetupId: "m1"
-        }
-      },
-      { 
-        params: {
-          meetupId: "m2"
-        }
-      }
-    ],
+    paths: meetups.map(meetup => ({params: {
+      meetupId: meetup._id.toString()
+    }})),
+    
     // false - contains all supported ID values
-    // true - reachout to server instead
-    fallback: false
+    // blocking/true - reachout to server instead
+    //   might not be exhaustive 
+    //   will generate on demand and then cache it
+    //   true - immediately return empty; then pull down new content once done
+    //   blocking - user will not seeing anything until finished page is served
+    fallback: "blocking"
   };
 };
 
@@ -43,17 +66,29 @@ export const getStaticProps = async (context) => {
   // fetch data for a single meetup
   const meetupId = context.params.meetupId;
 
+  const client = await MongoClient.connect("mongodb://root:example@mongo:27017/");
+  console.log(client);
+  const db = client.db();
+
+  const meetupsCollection = db.collection("meetups");
+
+  // finds ingle meet-gup who is  Object(_id), expected by MongoDB, 
+  const selectedMeetup = await meetupsCollection.findOne({
+    _id: ObjectId(meetupId)
+  });
+
+  client.close();
+
   return {
     props: {
       meetupData: {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Madeleine_Paris.jpg/1280px-Madeleine_Paris.jpg",
-        id: meetupId,
-        alt:"A First Meetup",
-        title:"A First Meetup",
-        address:"Some Street 5, Some City",
-        description: "The meetup description"
+        id: selectedMeetup._id.toString(),
+        title: selectedMeetup.title,
+        address: selectedMeetup.address,
+        image: selectedMeetup.image,
+        description: selectedMeetup.description
       }
-    }
+    },
   };
 };
 

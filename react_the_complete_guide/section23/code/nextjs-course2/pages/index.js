@@ -6,25 +6,33 @@
 import MeetupList from "@/components/meetups/MeetupList";
 // import { useEffect } from "react";
 
-const imageUrl =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Madeleine_Paris.jpg/1280px-Madeleine_Paris.jpg";
+// only be executed on the server
+// NextJS detects and does not bundle w/ client
+import { MongoClient } from "mongodb";
 
-const DUMMY_MEETUPS = [
-  {
-    id: "m1",
-    title: "A First Meetup",
-    image: imageUrl,
-    address: "Some Address 5, 12345 Some City",
-    description: "This is a first meetup!",
-  },
-  {
-    id: "m2",
-    title: "A 2nd Meetup",
-    image: imageUrl,
-    address: "Some Address 7, 12345 Some City",
-    description: "This is a 2nd meetup!",
-  },
-];
+// allows you to add <head>
+import Head from "next/head";
+import { Fragment } from "react";
+
+// const imageUrl =
+//   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Madeleine_Paris.jpg/1280px-Madeleine_Paris.jpg";
+
+// const DUMMY_MEETUPS = [
+//   {
+//     id: "m1",
+//     title: "A First Meetup",
+//     image: imageUrl,
+//     address: "Some Address 5, 12345 Some City",
+//     description: "This is a first meetup!",
+//   },
+//   {
+//     id: "m2",
+//     title: "A 2nd Meetup",
+//     image: imageUrl,
+//     address: "Some Address 7, 12345 Some City",
+//     description: "This is a 2nd meetup!",
+//   },
+// ];
 
 const HomePage = (props) => {
 
@@ -51,7 +59,15 @@ const HomePage = (props) => {
   // content from SEO crawler is pre the empty unordered list (1st render cycle)
 
   return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta 
+          name="description"
+          content="Browse a huge list of highly active React meetups"/>
+      </Head>
       <MeetupList meetups={props.meetups}></MeetupList>
+    </Fragment>
   );
 };
 
@@ -67,17 +83,32 @@ export const getStaticProps = async () =>{
   // will never end up on client side!!
   // DURING BUILD PROCESS
 
+  const client = await MongoClient.connect("mongodb://root:example@mongo:27017/");
+  console.log(client);
+  const db = client.db();
+
+  const meetupsCollection = db.collection("meetups");
+
+  const meetups = await meetupsCollection.find().toArray();
+
+  client.close(); 
+
   // example
   // fetch data from an API
   // or read files from filesystem
   // must always return Object
   return {
     props: {
-      meetups: DUMMY_MEETUPS
+      meetups: meetups.map(meetup => ({
+        title: meetup.title,
+        address:meetup.address,
+        image: meetup.image,
+        id: meetup._id.toString()
+      }))
     },
     // page re-pre-generated on server after deployment
     // so long as requests are coming in
-    revalidate: 10
+    revalidate: 1
   };
 };
 
