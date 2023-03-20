@@ -103,4 +103,27 @@ Note:
 
 ### The CSSTransition Component
 * pre-defined CSS classes for animation states
-* 
+* TransitionGroup from "react-transition-group/TransitionGroup";
+  * lets you manage multiple CSSTransition/Transition in dynamic groups for the "in" keys
+
+## Alternative packages
+For complex animations, can pick either library  
+* React-Motion
+  * uses physics as a way only taking start and end; figures out how to start
+  * unorthodox
+  * may give more natural look depending on cases
+
+* React-Move
+  * always work with objects describing the state of an animation
+  * animate - single item
+  * node group - group of items
+
+* React Router Transition
+  * allow create route transitions (powered by React-Motion)
+  * \<AnimatedSwitch/>
+  * states 
+    * atEnter
+    * atLeave
+    * AtActive
+    * classNames
+  * Router 4.x+ 
