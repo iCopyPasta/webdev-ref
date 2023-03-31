@@ -1,5 +1,8 @@
 import React from "react";
 import Todo from "../models/todo";
+import TodoItem from "./TodoItem";
+
+import classes from "./Todos.module.css";
 
 // React.FC - Functional Component
 // makes it clear that it is a funciton that acts as a functional component
@@ -10,9 +13,9 @@ import Todo from "../models/todo";
 // will merge with base object type
 const Todos: React.FC<{ items: Todo[] }> = (props) => {
   return (
-    <ul>
+    <ul className={classes.todos}>
       {props.items.map((todo) => (
-        <li key={todo.id}>{todo.text}</li>
+        <TodoItem key={todo.id} todo={todo}></TodoItem>
       ))}
     </ul>
   );
