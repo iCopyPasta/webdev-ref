@@ -56,4 +56,45 @@ react/react-dom are made for *vanilla* JavaScript, whereas "@types/react" and "@
 
 ### TypeScript Config
 * Expects tsconfig.json in folder
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}
+```
 
+* target
+  * controls the target javascript version to which output will conform
+* lib
+  * influences which types are known out of the box
+* allowJs
+  * can import from plain JavaScript without import errors
+* strict
+  * influences non-implicit "any" anywhere
+* jsx
+  * JSX is supported
+
+**Note**: project settings might have multiple compilation steps (i.e. babel)
+ 
