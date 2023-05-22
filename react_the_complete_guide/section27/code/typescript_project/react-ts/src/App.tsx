@@ -9,6 +9,12 @@ function App() {
   // empty array --> TypeScript infers never[]
   const [appTodos, setAppTodos] = useState<Todo[]>([]);
 
+  const removeTodoHandler = (todoId: string) => {
+    setAppTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.id !== todoId)
+    })
+  }
+
   const addTodoHandler = (todoText:string) => {
     //todo magic
     const newTodo = new Todo(todoText);
@@ -20,7 +26,7 @@ function App() {
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler}/>
-      <Todos items={appTodos}/>
+      <Todos items={appTodos} onRemoveTodo={removeTodoHandler}/>
     </div>
   );
 }
