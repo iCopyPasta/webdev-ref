@@ -16,4 +16,10 @@ A totally optional way of reducing your dependencies
   * Good for
     * Authentication
 * Global State as a hook
+  * have some complex state/shared data with the following OUTSIDE of the hook
+    * state
+    * listeners
+    * actions
+  * dispach updates global state and call child listeners
+    * components will re-render then
  
