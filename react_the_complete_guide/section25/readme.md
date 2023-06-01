@@ -22,4 +22,13 @@ A totally optional way of reducing your dependencies
     * actions
   * dispach updates global state and call child listeners
     * components will re-render then
+
+In essence, you do the heavy lifting of state management; however, is entirely within React
+and therefore lightweight
+
+Consider:
+global state management is less than 1kb
+
+Link: [https://www.npmjs.com/package/use-global-hook](https://www.npmjs.com/package/use-global-hook)
+
  
